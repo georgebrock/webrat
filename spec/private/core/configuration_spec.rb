@@ -82,6 +82,15 @@ describe Webrat::Configuration do
       @config.selenium_browser_startup_timeout = 10
       @config.selenium_browser_startup_timeout.should == 10
     end
+
+    it 'should default selenium action timeout to 5 seconds' do
+      @config.selenium_action_timeout.should == 5
+    end
+
+    it 'should allow overriding of the browser startup timeout' do
+      @config.selenium_action_timeout = 10
+      @config.selenium_action_timeout.should == 10
+    end
   end
 
 end

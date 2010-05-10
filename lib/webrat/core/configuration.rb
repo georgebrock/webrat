@@ -68,6 +68,9 @@ module Webrat
     # Set the firefox profile for selenium to use
     attr_accessor :selenium_firefox_profile
 
+    # Set the timeout for selenium actions like click_link, click_button, select etc. Default is 5 seconds
+    attr_accessor :selenium_action_timeout
+
     # How many redirects to the same URL should be halted as an infinite redirect
     # loop? Defaults to 10
     attr_accessor :infinite_redirect_limit
@@ -87,7 +90,7 @@ module Webrat
       self.selenium_browser_key = '*firefox'
       self.selenium_browser_startup_timeout = 5
       self.selenium_verbose_output = false
-
+      self.selenium_action_timeout = 5
       tmp_dir = Pathname.new(Dir.pwd).join("tmp")
       self.saved_pages_dir = tmp_dir.exist? ? tmp_dir : Dir.pwd
     end
